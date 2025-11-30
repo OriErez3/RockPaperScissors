@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function getComputerChoice() {
+    const ans = Math.random();
+    if (ans >= 0 &&  ans < 0.33){
+        return "Rock";
+    }
+    if (ans >= 0.33 &&  ans < 0.66){
+        return "Paper";
+    }
+    else{
+        return "Scissors";
+    }
+} 
+
+console.log(getComputerChoice())
+</script>
+</body>
+</html>
