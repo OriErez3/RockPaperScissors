@@ -7,20 +7,63 @@
 </head>
 <body>
 <script>
+    let humanScore = 0;
+let computerScore = 0; 
+let human = "NULL"
+let comp = "NULL"
     function getComputerChoice() {
     const ans = Math.random();
     if (ans >= 0 &&  ans < 0.33){
-        return "Rock";
+        return "ROCK";
     }
     if (ans >= 0.33 &&  ans < 0.66){
-        return "Paper";
+        return "PAPER";
     }
     else{
-        return "Scissors";
+        return "SCISSORS";
     }
 } 
 
-console.log(getComputerChoice())
+function humanChoice(){
+    const User = prompt("What is your choice?").toUpperCase(); 
+    return User
+}
+function playRound(humanChoice, computerChoice){
+    if (humanChoice == computerChoice){
+        return "Tie"
+    }
+    if (humanChoice == "SCISSORS" && computerChoice == "ROCK"){
+        computerScore = computerScore + 1;
+        return "Computer Wins"
+    }
+    if (humanChoice == "SCISSORS" && computerChoice == "PAPER"){
+        humanScore = humanScore + 1;
+        return "Human Wins"
+    }
+    if (humanChoice == "PAPER" && computerChoice == "SCISSORS"){
+        computerScore = computerScore + 1;
+        return "Computer Wins"
+    }
+    if (humanChoice == "PAPER" && computerChoice == "ROCK"){
+        humanScore = humanScore + 1;
+        return "Human Wins"
+}
+    if (humanChoice == "ROCK" && computerChoice == "PAPER"){
+        computerScore = computerScore + 1;
+        return "Computer Wins"
+    }
+    if (humanChoice == "ROCK" && computerChoice == "SCISSORS"){
+        humanScore = humanScore + 1;
+        return "Human Wins"
+    }
+}
+for (let i = 0; i < 5; i++){
+comp = getComputerChoice();
+human = humanChoice();
+playRound(human, comp);
+}
+console.log("Human Score: " + humanScore);
+console.log("Comp Score: " + computerScore);
 </script>
 </body>
 </html>
